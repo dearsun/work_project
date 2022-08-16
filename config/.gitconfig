@@ -1,0 +1,5 @@
+[http "https://github.com"]
+	proxy = sock5://127.0.0.1:1086
+#[url "https://hub.fastgit.org/"]
+[url "https://ghproxy.com/https://github.com/"]
+	insteadOf = https://github.com/
