@@ -37,12 +37,14 @@ Plug 'preservim/nerdtree'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'Yggdroot/LeaderF'
+Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/Tagbar'
 Plug 'Shougo/echodoc.vim'
 "Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'vim-scripts/matchit.zip'
 Plug 'rust-lang/rust.vim'
+Plug 'bmeneg/coc-perl', {'do': 'yarn install && yarn build'}
 "Plug 'vim-airline/vim-airline'
 
 call plug#end()
@@ -196,6 +198,17 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" coc scroll control
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+
 " 显示文档
 " Use Leader+h to show documentation in preview window.
 " nnoremap <silent> <LEADER>h :call <SID>show_documentation()<CR>
@@ -222,3 +235,8 @@ function! ShowDocumentation()
         call feedkeys('<leader>h', 'in')
     endif
 endfunction
+
+"coc perl
+let g:coc_global_extensions = ['coc-perl']
+let g:coc_perl_enable = 1
+let g:coc_perl_filetypes = ['perl']
