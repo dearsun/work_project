@@ -59,6 +59,7 @@ filetype plugin indent on
 " :PluginClean      - 清除未使用插件,需要确认; 追加 `!`
 
 "leaderf
+"Leaderf gtags --update / --remove   #生存或者删除 GTAGS 等文件，存放目录在默认在 ~/.LfCache/gtags/_you_path_dir 下面
 let g:Lf_PreviewInPopup = 1
 
 noremap <leader>s :LeaderfSelf<cr>
