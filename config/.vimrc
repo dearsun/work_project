@@ -194,9 +194,14 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " 查看函数定义，调用
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> ge <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+"定义快捷键调用 Call Hierarchy
+nmap <leader>ci :call CocAction('showIncomingCalls')<CR>
+"nmap <leader>co :call CocAction('showOutgoingCalls')<CR>
 
 " coc scroll control
 if has('nvim-0.4.0') || has('patch-8.2.0750')
