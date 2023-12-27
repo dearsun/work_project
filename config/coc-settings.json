@@ -16,11 +16,13 @@
             }
         },
 
+        /*
         "rust": {
             "command": "rust-analyzer",
             "rootPatterns": ["Cargo.toml"],
             "filetypes": ["rust"]
         },
+        */
 
         "perl": {
             "command": "perl",
@@ -29,6 +31,7 @@
             "trace.server": "verbose"
         },
 
+        /*
         "python": {
             "command": "jedi-language-server",
             "args": [],
@@ -59,5 +62,6 @@
                 }
             }
         }
+        */
     }
 }
